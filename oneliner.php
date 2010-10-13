@@ -70,9 +70,9 @@ echo $css;
 echo '</style></head><body>';
 
 echo '<form method="post">';
-echo '<input type="text" name="pseudo" value="Pseudo"></input>';
-echo '<input type="text" name="message"></input>';
-echo '<input type="submit" name="submit" value="Go"></input>';
+echo '<input type="text" size="8" maxlength="15" name="pseudo" value="pseudo"></input>';
+echo '<input type="text" size="25" name="message" value="message-pourri" onclick="this.value=\'\'"></input>';
+echo '<input type="submit" name="submit" value="+"></input>';
 echo '</form>';
 
 echo '<ul>';
@@ -80,7 +80,7 @@ foreach ($rev_d as $line) {
   echo '<li>';
   echo '<span class="pseudobracket">[</span>'
     .'<span class="pseudo">' . $line[1] . '</span>'
-    .'<span class="pseudobracket">]</span>'
+    .'<span class="pseudobracket">]</span> '
     .'<span class="message">' . $line[2] . '</span>';
   echo '</li>';
 }
