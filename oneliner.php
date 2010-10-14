@@ -85,6 +85,8 @@ echo '<style type="text/css">';
 echo $css;
 echo '</style></head><body>';
 
+echo '<img src="oneliner.jpg" height="40" />';
+
 echo '<form method="post">';
 echo '<input type="text" size="8" maxlength="15" name="pseudo" value="pseudo"></input>';
 echo '<input type="text" size="25" name="message" value="message-pourri" onclick="this.value=\'\'"></input>';
