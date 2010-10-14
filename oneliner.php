@@ -1,6 +1,8 @@
 <?php
 
-if (!function_exists(fputcsv)) {
+$php5 = 1;
+
+if (!function_exists('fputcsv')) {
 function fputcsv($fh, $arr)
 {
   $csv = "";
@@ -14,6 +16,7 @@ function fputcsv($fh, $arr)
   if (!@fwrite($fh, $csv))
     return FALSE;
 }
+$php5 = 0;
 }
 
 function read_data () {
@@ -95,6 +98,10 @@ echo '</form>';
 
 echo '<ul>';
 foreach ($rev_d as $line) {
+  if ($php5 == 0) {
+    $line[1] = stripslashes($line[1]);
+    $line[2] = stripslashes($line[2]);
+  }
   echo '<li>';
   echo '<span class="pseudobracket">[</span>'
     .'<span class="pseudo">' . $line[1] . '</span>'
