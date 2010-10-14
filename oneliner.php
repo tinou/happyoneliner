@@ -1,5 +1,21 @@
 <?php
 
+if (!function_exists(fputcsv)) {
+function fputcsv($fh, $arr)
+{
+  $csv = "";
+  while (list($key, $val) = each($arr))
+  {
+    $val = str_replace('"', '""', $val);
+    $csv .= '"'.$val.'",';
+  }
+  $csv = substr($csv, 0, -1);
+  $csv .= "\n";
+  if (!@fwrite($fh, $csv))
+    return FALSE;
+}
+}
+
 function read_data () {
   $res = array();
   if (($handle = fopen('oneliner.csv', 'r')) !== FALSE) {
